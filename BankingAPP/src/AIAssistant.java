@@ -13,41 +13,42 @@ public class AIAssistant {
     }
 
     public void handleAccountOpenRequests(Chat chat) {
-        chat.addMessage("Sure, I can help you open a new account. Could you please provide me with your personal details?");
+        chat.setMessageFromAssistant("Sure, I can help you open a new account. Could you please provide me with your personal details?");
         this.addChat(chat);
     }
 
     public void provideCardInfo(Chat chat) {
-        chat.addMessage("Here is the information about our available cards: [Card Info]");
+        chat.setMessageFromAssistant("Here is the information about our available cards: [Card Info]");
         this.addChat(chat);
     }
 
     public void provideLoanInfo(Chat chat) {
-        chat.addMessage("Here is the information about our loan options: [Loan Info]");
+        chat.setMessageFromAssistant("Here is the information about our loan options: [Loan Info]");
         this.addChat(chat);
     }
 
     public void guideCustomerThroughInitialApplicationForms(Chat chat) {
-        chat.addMessage("I will guide you through the initial application forms. Please fill in the following details: [Form Details]");
+        chat.setMessageFromAssistant("I will guide you through the initial application forms. Please fill in the following details: [Form Details]");
         this.addChat(chat);
     }
 
     public void forwardComplexRequestsToHumanEmployee(Chat chat) {
-        chat.addMessage("Your request is a bit complex. I will forward it to one of our human employees. They will get back to you shortly.");
+        chat.setMessageFromAssistant("Your request is a bit complex. I will forward it to one of our human employees. They will get back to you shortly.");
         this.addChat(chat);
     }
 
     public void interactWithBankAPI(Chat chat) {
         // Simulating an interaction with a bank API to retrieve updated information
         String updatedInfo = "Retrieved updated information from the bank API.";
-        chat.addMessage(updatedInfo);
+        chat.setMessageFromAssistant(updatedInfo);
         this.addChat(chat);
     }
 
     public String getChatHistory() {
         StringBuilder history = new StringBuilder();
         for (Chat chat : chats) {
-            history.append(chat.getMessages()).append("\n\n");
+            history.append("Client: ").append(chat.getMessageFromClient()).append("\n");
+            history.append("Assistant: ").append(chat.getMessageFromAssistant()).append("\n\n");
         }
         return history.toString();
     }

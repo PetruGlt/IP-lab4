@@ -1,25 +1,33 @@
-class Chat{
+import java.util.List;
+
+public class Chat {
     private final long id;
     private final String messageFromClient;
     private String messageFromAssistant;
     //    private Client client;
     private AIAssistant assistant;
-    public Chat(long  id, String messageFromClient) {
-        this.ID=ID;
-        messageFromClient=filterMessage(messageFromClient);
+
+    public Chat(long id, String messageFromClient) {
+        this.id = id;
+        this.messageFromClient = filterMessage(messageFromClient);
     }
-    public long getId(){
+
+    public long getId() {
         return id;
     }
-    public void setMessageFromAssistant(String messageFromAssistant){
-        this.messageFromAssistant=messageFromAssistant;
+
+    public void setMessageFromAssistant(String messageFromAssistant) {
+        this.messageFromAssistant = messageFromAssistant;
     }
-    public String getMessageFromAssistant(){
+
+    public String getMessageFromAssistant() {
         return messageFromAssistant;
     }
-    public String getMessageFromClient(){
+
+    public String getMessageFromClient() {
         return messageFromClient;
     }
+
     private String filterMessage(String message) {
         if (message == null) {
             return null;
@@ -31,6 +39,4 @@ class Chat{
         }
         return filteredMessage;
     }
-
-
 }
